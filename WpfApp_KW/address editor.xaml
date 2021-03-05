@@ -1,0 +1,76 @@
+﻿<Window x:Class="WpfApp_KW.address_editor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp_KW"
+        mc:Ignorable="d"
+        Title="address_editor"
+        Height="240"
+        Width="270" ResizeMode="CanMinimize">
+    <Grid Background="#FFE8E8E8">
+        <TextBox x:Name="adr1"
+                 HorizontalAlignment="Right"
+                 Height="24"
+                 Margin="0,10,10,0"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="120"
+                 TextChanged="adr1_TextChanged" />
+        <TextBox x:Name="adr2"
+                 HorizontalAlignment="Right"
+                 Height="24"
+                 Margin="0,38,10,0"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="120"
+                 TextChanged="adr2_TextChanged" />
+        <TextBox x:Name="adr3"
+                 HorizontalAlignment="Right"
+                 Height="24"
+                 Margin="0,66,10,0"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="120"
+                 TextChanged="adr3_TextChanged" />
+        <TextBox x:Name="adr4"
+                 HorizontalAlignment="Right"
+                 Height="24"
+                 Margin="0,94,10,0"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="120"
+                 TextChanged="adr4_TextChanged" />
+        <TextBox x:Name="adr5"
+                 HorizontalAlignment="Right"
+                 Height="24"
+                 Margin="0,122,10,0"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="120"
+                 TextChanged="adr5_TextChanged" />
+        <TextBox x:Name="adr6"
+                 HorizontalAlignment="Right"
+                 Height="24"
+                 Margin="0,150,10,0"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="120"
+                 TextChanged="adr6_TextChanged" />
+        <TextBox x:Name="adr7"
+                 HorizontalAlignment="Right"
+                 Height="24"
+                 Margin="0,178,10,0"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="120"
+                 TextChanged="adr7_TextChanged" />
+        <Label x:Name="label" Content="Subscriber box:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="24" HorizontalContentAlignment="Center"/>
+        <Label x:Name="label_Copy" Content="Extended address:" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Height="24" HorizontalContentAlignment="Center"/>
+        <Label x:Name="label_Copy1" Content="House and street:" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Height="24" HorizontalContentAlignment="Center"/>
+        <Label x:Name="label_Copy2" Content="Locality:" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Height="24" HorizontalContentAlignment="Center"/>
+        <Label x:Name="label_Copy3" Content="Region (state, region):" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" Height="24" HorizontalContentAlignment="Center"/>
+        <Label x:Name="label_Copy4" Content="Postcode:" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" Height="24" HorizontalContentAlignment="Center"/>
+        <Label x:Name="label_Copy5" Content="The country:" HorizontalAlignment="Left" Margin="10,178,0,0" VerticalAlignment="Top" Height="24" HorizontalContentAlignment="Center"/>
+    </Grid>
+</Window>

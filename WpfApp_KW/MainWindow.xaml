@@ -1,0 +1,43 @@
+﻿<Window x:Class="WpfApp_KW.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp_KW"
+        mc:Ignorable="d"
+        Title="Contact Book"
+        Height="450"
+        Width="600"
+        MinWidth="450"
+        MinHeight="320">
+    <Grid Background="#FFE8E8E8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="140" />
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="list"
+                 Margin="10"
+                 MouseDoubleClick="EditThisCont" />
+        <Button Content="add"
+                Margin="0,10,10,0"
+                VerticalAlignment="Top"
+                Click="AddClick"
+                RenderTransformOrigin="-4.227,-11.7"
+                Grid.Column="1"
+                Height="24" />
+        <Button Content="remove"
+                Margin="0,39,10,0"
+                VerticalAlignment="Top"
+                Click="RemoveClick"
+                Grid.Column="1"
+                Height="24" />
+        <Button x:Name="vcardex"
+                Content="vCard Export"
+                Grid.Column="1"
+                Margin="0,68,10,0"
+                VerticalAlignment="Top"
+                Height="24"
+                Click="vcardex_Click" />
+
+    </Grid>
+</Window>
