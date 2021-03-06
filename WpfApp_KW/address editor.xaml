@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:WpfApp_KW"
         mc:Ignorable="d"
         Title="address_editor"
-        Height="240"
-        Width="270" ResizeMode="CanMinimize">
+        Height="250"
+        Width="290" ResizeMode="CanMinimize">
     <Grid Background="#FFE8E8E8">
         <TextBox x:Name="adr1"
                  HorizontalAlignment="Right"
@@ -60,7 +60,7 @@
         <TextBox x:Name="adr7"
                  HorizontalAlignment="Right"
                  Height="24"
-                 Margin="0,178,10,0"
+                 Margin="0,179,10,0"
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
                  Width="120"
@@ -71,6 +71,6 @@
         <Label x:Name="label_Copy2" Content="Locality:" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Height="24" HorizontalContentAlignment="Center"/>
         <Label x:Name="label_Copy3" Content="Region (state, region):" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" Height="24" HorizontalContentAlignment="Center"/>
         <Label x:Name="label_Copy4" Content="Postcode:" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" Height="24" HorizontalContentAlignment="Center"/>
-        <Label x:Name="label_Copy5" Content="The country:" HorizontalAlignment="Left" Margin="10,178,0,0" VerticalAlignment="Top" Height="24" HorizontalContentAlignment="Center"/>
+        <Label x:Name="label_Copy5" Content="The country:" HorizontalAlignment="Left" Margin="10,179,0,0" VerticalAlignment="Top" Height="24" HorizontalContentAlignment="Center"/>
     </Grid>
 </Window>

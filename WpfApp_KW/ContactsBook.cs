@@ -15,7 +15,6 @@ namespace WpfApp_KW
         public Contact this[int i] { get { return contacts[i]; } }
         public int KontaktsCount() => contacts.Count();
         public void AddContact(string name) => this.contacts.Add(new Contact(name));
-       
         public void RemoveContact(int index) { contacts.RemoveAt(index); }
         public void Save()
         {
@@ -139,12 +138,9 @@ namespace WpfApp_KW
         {
             this.mail = CheckMail(mail);
         }
-
         public Mails(string mail)
         {
             this.mail = CheckMail(mail);
         }
     }
 }
-
-
