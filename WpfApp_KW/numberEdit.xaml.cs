@@ -30,7 +30,6 @@ namespace WpfApp_KW
                 mails.Items.Add(book[index].mails[i].mail);
             }
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             select.Content = "Now selected: null";
@@ -58,7 +57,6 @@ namespace WpfApp_KW
             }
             catch { }
         }
-
         private void Check(object sender, RoutedEventArgs e)
         {
             try
@@ -78,14 +76,12 @@ namespace WpfApp_KW
             }
             catch { }
         }
-
         private void nam_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             this.Title = nam.Text;
             book[index].ChangeName(nam.Text);
             book.Save();
         }
-
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
             if ((numbtypes.SelectedIndex >= 0) && (numbtypes.Items.Count > 1))
@@ -96,6 +92,7 @@ namespace WpfApp_KW
                 book.Clear();
                 numbtypes.Items.Clear();
                 mails.Items.Clear();
+                select.Content = "Now selected: null";
                 edit(index);
             }
             if ((mails.SelectedIndex >= 0) && (mails.Items.Count > 1)) 
@@ -106,10 +103,10 @@ namespace WpfApp_KW
                 book.Clear();
                 numbtypes.Items.Clear();
                 mails.Items.Clear();
+                select.Content = "Now selected: null";
                 edit(index);
             }
         }
-
         private void addMailButton_Click(object sender, RoutedEventArgs e)
         {
             book[index].AddMail(mailText.Text);
@@ -120,7 +117,6 @@ namespace WpfApp_KW
             numbtypes.Items.Clear();
             edit(index);
         }
-
         private void addNumber_Click(object sender, RoutedEventArgs e)
         {
             book[index].AddNumber(typeTxt.Text, nuberTxt.Text);
@@ -131,24 +127,20 @@ namespace WpfApp_KW
             numbtypes.Items.Clear();
             edit(index);
         }
-
         private void numbtypes_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             select.Content = $"Now selected: number {numbtypes.SelectedIndex}";
         }
-
         private void mails_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             select.Content = $"Now selected: mail {mails.SelectedIndex}";
         }
-
         private void editadress_Click(object sender, RoutedEventArgs e)
         {
             address_editor ad = new address_editor();
             ad.edit(index);
             ad.ShowDialog();
         }
-
         private void DataChanger(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             string dateForVcard = "";
@@ -160,7 +152,6 @@ namespace WpfApp_KW
             dateForVcard += "-";
             dateForVcard += datePicker.SelectedDate.Value.Day.ToString();
             book[index].AddBdayVcard(dateForVcard);
-
         }
     }
 }

@@ -34,10 +34,11 @@
         <Button x:Name="vcardex"
                 Content="vCard Export"
                 Grid.Column="1"
-                Margin="0,68,10,0"
+                Margin="0,79,10,0"
                 VerticalAlignment="Top"
                 Height="24"
                 Click="vcardex_Click" />
+        <CheckBox x:Name="check" Content="Export all" Grid.Column="1" Margin="0,108,10,0" VerticalAlignment="Top" IsChecked="True"/>
 
     </Grid>
 </Window>

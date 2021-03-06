@@ -13,18 +13,19 @@ namespace WpfApp_KW
         public MainWindow()
         {
             InitializeComponent();
+            book.DirCheck();
             reload();
         }
 
         private void AddClick(object sender, RoutedEventArgs e)
         {
             book.AddContact("New contact");
-            book[book.KontaktsCount() - 1].AddNumber("home", "00000000000");
-            book[book.KontaktsCount() - 1].AddMail("null@null.net");
-            book[book.KontaktsCount() - 1].AddBday("1970.12.31");
+            book[book.ContactsCount() - 1].AddNumber("home", "00000000000");
+            book[book.ContactsCount() - 1].AddMail("null@null.net");
+            book[book.ContactsCount() - 1].AddBday("1970.12.31");
 
             book.Save();
-            list.Items.Add(book[book.KontaktsCount() - 1].ToString());
+            list.Items.Add(book[book.ContactsCount() - 1].ToString());
             numberEdit edit = new numberEdit();
             edit.edit(list.Items.Count - 1);
             if (edit.ShowDialog() == false)
@@ -39,7 +40,7 @@ namespace WpfApp_KW
             try
             {
                 book.Load();
-                for (int i = 0; i < book.KontaktsCount(); i++)
+                for (int i = 0; i < book.ContactsCount(); i++)
                     list.Items.Add(book[i].ToString());
             }
             catch { };
@@ -69,19 +70,42 @@ namespace WpfApp_KW
 
         private void vcardex_Click(object sender, RoutedEventArgs e)
         {
-            if (list.SelectedIndex >= 0)
+            if (check.IsChecked == false) 
             {
-                string VCARD =
-                $"BEGIN:VCARD\n" +
-                $"VERSION:3.0\n" +
-                $"N:{book[list.SelectedIndex].name};{book[list.SelectedIndex].name}\n" +
-                $"FN:{book[list.SelectedIndex].name}\n" +
-                $"{book[list.SelectedIndex].returnNumbersForVcard()}" +
-                $"{book[list.SelectedIndex].returnMailsForVcard()}" +
-                $"BDAY:{book[list.SelectedIndex].bdayVcard}\n" +
-                $"ADR:{book[list.SelectedIndex].adresses[0]};{book[list.SelectedIndex].adresses[1]};{book[list.SelectedIndex].adresses[2]};{book[list.SelectedIndex].adresses[3]};{book[list.SelectedIndex].adresses[4]};{book[list.SelectedIndex].adresses[5]};{book[list.SelectedIndex].adresses[6]};\n" +
-                $"END:VCARD";
-                File.WriteAllText(Path.Combine(Environment.CurrentDirectory, $"Kontakts/{book[list.SelectedIndex].name}.vcf"), VCARD);
+                if (list.SelectedIndex >= 0)
+                {
+                    string VCARD =
+                    $"BEGIN:VCARD\n" +
+                    $"VERSION:3.0\n" +
+                    $"N:{book[list.SelectedIndex].name};{book[list.SelectedIndex].name}\n" +
+                    $"FN:{book[list.SelectedIndex].name}\n" +
+                    $"{book[list.SelectedIndex].returnNumbersForVcard()}" +
+                    $"{book[list.SelectedIndex].returnMailsForVcard()}" +
+                    $"BDAY:{book[list.SelectedIndex].bdayVcard}\n" +
+                    $"ADR:{book[list.SelectedIndex].adresses[0]};{book[list.SelectedIndex].adresses[1]};{book[list.SelectedIndex].adresses[2]};{book[list.SelectedIndex].adresses[3]};{book[list.SelectedIndex].adresses[4]};{book[list.SelectedIndex].adresses[5]};{book[list.SelectedIndex].adresses[6]};\n" +
+                    $"END:VCARD";
+                    Console.WriteLine(VCARD);
+                    File.WriteAllText(Path.Combine(Environment.CurrentDirectory, $"Contacts/{book[list.SelectedIndex].name}.vcf"), VCARD);
+                }
+            }
+            else
+            {
+                string VCARD = "";
+                for (int i=0; i<book.ContactsCount(); i++)
+                {
+                    VCARD +=
+                    $"BEGIN:VCARD\n" +
+                    $"VERSION:3.0\n" +
+                    $"N:{book[i].name};{book[i].name}\n" +
+                    $"FN:{book[i].name}\n" +
+                    $"{book[i].returnNumbersForVcard()}" +
+                    $"{book[i].returnMailsForVcard()}" +
+                    $"BDAY:{book[i].bdayVcard}\n" +
+                    $"ADR:{book[i].adresses[0]};{book[i].adresses[1]};{book[i].adresses[2]};{book[i].adresses[3]};{book[i].adresses[4]};{book[i].adresses[5]};{book[i].adresses[6]};\n" +
+                    $"END:VCARD\n";
+                }
+                Console.WriteLine(VCARD);
+                File.WriteAllText(Path.Combine(Environment.CurrentDirectory, $"Contacts/allContacts.vcf"), VCARD);
             }
         }
     }

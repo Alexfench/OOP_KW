@@ -11,19 +11,26 @@ namespace WpfApp_KW
     {
         private List<Contact> contacts = new List<Contact>();
         private BinaryFormatter formatter = new BinaryFormatter();
-        public string path = Path.Combine(Environment.CurrentDirectory, "Kontakts");
+        public string path = Path.Combine(Environment.CurrentDirectory, "Contacts");
         public Contact this[int i] { get { return contacts[i]; } }
-        public int KontaktsCount() => contacts.Count();
+        public void DirCheck()
+        {
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+        }
+        public int ContactsCount() => contacts.Count();
         public void AddContact(string name) => this.contacts.Add(new Contact(name));
         public void RemoveContact(int index) { contacts.RemoveAt(index); }
         public void Save()
         {
-            using (FileStream fs = new FileStream(path + $"/Kontakt.kon", FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(path + $"/Contact.con", FileMode.OpenOrCreate))
                 formatter.Serialize(fs, contacts);
         }
         public void Load()
         {
-            string[] fileEntries = Directory.GetFiles(path, "*.kon");
+            string[] fileEntries = Directory.GetFiles(path, "*.con");
             foreach (string item in fileEntries)
             {
                 using (FileStream fs = new FileStream(item, FileMode.OpenOrCreate))
@@ -99,13 +106,13 @@ namespace WpfApp_KW
             switch (typ)
             {
                 case "mobile":
-                    return "MOBILE";
+                    return "mobile";
                 case "home":
-                    return "HOME";
+                    return "home";
                 case "work":
-                    return "WORK";
+                    return "work";
                 default:
-                    return "VOICE";
+                    return "voice";
             }
         }
         public void changeNumber(string number)
