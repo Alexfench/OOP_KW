@@ -71,7 +71,7 @@ namespace WpfApp_KW
         public override string ToString() => $"Имя: {name}, " +
             $"Номер: {numbers[0].number}, " +
             $"E-mail: {mails[0].mail}, " +
-            $"Адрес: {adresses[1]}, " +
+            $"Адрес: {adresses[2]}, " +
             $"Дата рождения: {bday}";
         public string returnNumbersForVcard()
         {

@@ -15,6 +15,7 @@ namespace WpfApp_KW
         }
         public void edit(int index)
         {
+            select.Content = "Now selected: null";
             book.Load();
             this.index = index;
             Title = book[index].name;
@@ -32,7 +33,7 @@ namespace WpfApp_KW
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            select.Content = "Now selected: null";
+           // select.Content = "Now selected: null";
             try
             {
                 if (numbed.IsChecked == true)
@@ -92,7 +93,6 @@ namespace WpfApp_KW
                 book.Clear();
                 numbtypes.Items.Clear();
                 mails.Items.Clear();
-                select.Content = "Now selected: null";
                 edit(index);
             }
             if ((mails.SelectedIndex >= 0) && (mails.Items.Count > 1)) 
@@ -103,7 +103,6 @@ namespace WpfApp_KW
                 book.Clear();
                 numbtypes.Items.Clear();
                 mails.Items.Clear();
-                select.Content = "Now selected: null";
                 edit(index);
             }
         }
